@@ -147,17 +147,9 @@ for i in range(len(docScores)):
     if docScores[i] >= .1:
         result.append(i)
 
-for j in range(len(splitWords)):
-    include = [False] * len(newQuery)
-    for i in range(len(newQuery)):
-        if newQuery[i] in splitWords[j]:
-            include[i] = True
-    
-    for r in include:
-        if not r:
-            break
-    else:
-      groundTruth.append(j)
+for i in range(len(labels)):
+    if labels[i] == " R":
+        groundTruth.append(i)
 
 relevant_retrieved = []
 relevant_notRetrieved = []
